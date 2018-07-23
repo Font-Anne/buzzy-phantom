@@ -28,8 +28,6 @@ class SubmitHandler(webapp2.RequestHandler):
         })
         self.response.write(html)
 
-
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler)

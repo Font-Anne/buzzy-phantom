@@ -6,14 +6,15 @@ html
 body
 {
   text-align: center;
+  font-family: Georgia;
+}
+
+#page_title
+{
+  font-size: 38pt;
 }
 
 #box1
 {
   border: solid;
-}
-
-#back_button
-{
-  text-align: left
 }

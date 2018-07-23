@@ -3,6 +3,9 @@
       <title>Submit</title>
       <link rel="stylesheet" text="text/css" href="static/submit.css">
     <body>
+      <form action="/">
+        <input type="submit" value="Back to home">
+      </form>
       <h1 id= "page_title">Submit a discovery!</h1>
       <form action="/view">
         <div class="blank" >What did you discover? : <input type="text" name="title"></div>
@@ -12,10 +15,11 @@
         <div class="blank" >Where is it located? : <input type="text" name="location"></div>
         <p></p>
 
-        <div id= "submission_button" action="/view">
+        <div id= "submission_button">
             <input type="submit" value="Share This!">
         </div>
       </form>
+
     </body>
   </head>
 </html>

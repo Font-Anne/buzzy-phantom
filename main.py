@@ -10,8 +10,12 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/main.html')
-        html = main_template.render()
+        main_template = jinja_env.get_template('templates/view.html')
+        html = main_template.render({
+            'title' : self.request.get('title'),
+            'desc' : self.request.get('desc'),
+            'location' : self.request.get('location')
+        })
         self.response.write(html)
 
 class SubmitHandler(webapp2.RequestHandler):
@@ -24,18 +28,9 @@ class SubmitHandler(webapp2.RequestHandler):
         })
         self.response.write(html)
 
-class ViewHandler(webapp2.RequestHandler):
-    def get(self):
-        main_template = jinja_env.get_template('templates/view.html')
-        html = main_template.render({
-            'title' : self.request.get('title'),
-            'desc' : self.request.get('desc'),
-            'location' : self.request.get('location')
-        })
-        self.response.write(html)
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/submit', SubmitHandler),
-    ('/view', ViewHandler),
+    ('/submit', SubmitHandler)
 ], debug=True)

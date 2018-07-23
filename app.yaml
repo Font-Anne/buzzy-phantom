@@ -2,13 +2,12 @@ runtime: python27
 threadsafe: true
 
 handlers:
+- url: /stylesheets
+  static_dir: stylesheets
 
-  - url: /static
-    script_dir: static
-
-  - url: /.*
-    script: main.app
+- url: /.*
+  script: main.app
 
 libraries:
-  - name: jinja2
-    version: latest
+- name: jinja2
+  version: latest

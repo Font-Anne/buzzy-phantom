@@ -25,6 +25,10 @@
           }
         </script> -->
         <h1> Discoveries Made Near You </h1>
+        <form id="back_button" action="/submit">
+            <input type="submit" value="Submit a Discovery">
+            <br></br>
+        </form>
         <div id= "box1">
             <h2>{{ title }}<h2>
             <p></p>
@@ -32,8 +36,5 @@
             <p></p> <p></p>
             <h3>{{ location }}</h3>
         </div>
-        <form id="back_button" action="/submit">
-            <input type="submit" value="Submit a Discovery">
-        </form>
     </body>
 </html>

@@ -10,7 +10,7 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/view.html')
+        main_template = jinja_env.get_template('templates/main.html')
         html = main_template.render({
             'title' : self.request.get('title'),
             'desc' : self.request.get('desc'),

@@ -5,6 +5,9 @@ handlers:
 - url: /stylesheets
   static_dir: stylesheets
 
+- url: /sunset
+  static_dir: static
+
 - url: /.*
   script: main.app
 

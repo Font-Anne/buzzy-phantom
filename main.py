@@ -3,8 +3,6 @@ import jinja2
 import os
 import information
 
-### Need to make submit buttons a POST action
-
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 )
@@ -14,6 +12,16 @@ class MainHandler(webapp2.RequestHandler):
         main_template = jinja_env.get_template('templates/main.html')
         html = main_template.render()
         self.response.write(html)
+
+    all_posts = information.Data.query().fetch()
+    for post in all_posts:
+        self.response.write("<div class= 'box'>")
+        self.response.write("<div id= 'post_image'>")
+        self.response.write("</div> <h2>" + post.title + "</h2>")
+        self.response.write("<p></p><h3>" + post.desc + "</h3>")
+        self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
+        self.response.write("</div>")
+        self.response.write("<br></br>")
 
     def post(self):
         data = information.Data()
@@ -36,16 +44,7 @@ class SubmitHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-class PostHandler(webapp2.RequestHandler):
-    def get(self):
-        all_posts = information.Data.query().fetch()
-        for item in all_posts:
-            self.response.write(item.title + " ")
-            self.response.write(item.desc + " ")
-            self.response.write(item.location + " ")
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
-    ('/view', PostHandler)
 ], debug=True)

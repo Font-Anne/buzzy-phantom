@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<p></p><h3>" + post.desc + "</h3>")
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             if post.image:
-                self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
+                self.response.write("<p></p> <img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
             self.response.write("</div>")
             self.response.write("<br></br>")
 
@@ -32,7 +32,7 @@ class MainHandler(webapp2.RequestHandler):
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')
         data.location = self.request.get('location')
-        data.image = images.resize(self.request.get('image'), 600, 600)
+        data.image = images.resize(self.request.get('image'), 300, 300)
         data.put()
 
         main_template = jinja_env.get_template('templates/main.html')
@@ -54,6 +54,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             if post.image:
                 self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
+            self.response.write("</div>")
             self.response.write("<br></br>")
 
 class SubmitHandler(webapp2.RequestHandler):

@@ -10,6 +10,11 @@ jinja_env = jinja2.Environment(
 )
 
 class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = jinja_env.get_template('templates/main.html')
+        html = main_template.render()
+        self.response.write(html)
+
     def post(self):
         data = information.Data()
         data.title = self.request.get('title')

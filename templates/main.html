@@ -3,27 +3,17 @@
   <head>
     <title>Dashboard</title>
     <link rel="stylesheet" text="text/css" href="/stylesheets/main.css">
-    <!-- <script src="buzzy-phantom/templates/main.js"></script> -->
+    <script src="/static/main.js"></script>
   </head>
     <body>
-        <!-- <div id="mySidenav" class="sidenav">
-          <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <div id="menu">
+        <div id="mySidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="/">Home</a>
           <a href="/submit">Submit</a>
         </div>
-        <span class="closebtn" style="font-size:30px;cursor:pointer">&#9776; open</span> -->
-
-        <!-- <script>
-                  /* Set the width of the side navigation to 250px */
-          function openNav() {
-              document.getElementById("mySidenav").style.width = "250px";
-          }
-
-          /* Set the width of the side navigation to 0 */
-          function closeNav() {
-              document.getElementById("mySidenav").style.width = "0";
-          }
-        </script> -->
+        <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+      </div>
         <h1> Discoveries Made Near You </h1>
         <form id="back_button" action="/submit">
             <input type="submit" value="Submit a Discovery">

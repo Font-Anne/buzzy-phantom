@@ -38,9 +38,14 @@ class SubmitHandler(webapp2.RequestHandler):
 
 class PostHandler(webapp2.RequestHandler):
     def get(self):
-        all_posts = Data.query().fetch()
+        all_posts = information.Data.query().fetch()
+        for item in all_posts:
+            self.response.write(item.title + " ")
+            self.response.write(item.desc + " ")
+            self.response.write(item.location + " ")
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
+    ('/view', PostHandler)
 ], debug=True)

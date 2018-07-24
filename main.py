@@ -10,10 +10,7 @@ jinja_env = jinja2.Environment(
 )
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
-        main_template = jinja_env.get_template('templates/main.html')
-        html = main_template.render()
-        self.response.write(html)
+    # def get(self):
 
     def post(self):
             data = information.Data()
@@ -21,6 +18,14 @@ class MainHandler(webapp2.RequestHandler):
             data.desc = self.request.get('desc')
             data.location = self.request.get('location')
             data.put()
+
+            main_template = jinja_env.get_template('templates/main.html')
+            html = main_template.render({
+                "title": data.title,
+                "desc": data.desc,
+                "location": data.location
+            })
+            self.response.write(html)
 
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):

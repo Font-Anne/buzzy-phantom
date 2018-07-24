@@ -2,6 +2,9 @@ runtime: python27
 threadsafe: true
 
 handlers:
+- url: /static
+  static_dir: static
+
 - url: /stylesheets
   static_dir: stylesheets
 

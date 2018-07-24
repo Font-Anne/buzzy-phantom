@@ -10,8 +10,6 @@ jinja_env = jinja2.Environment(
 )
 
 class MainHandler(webapp2.RequestHandler):
-    # def get(self):
-
     def post(self):
         data = information.Data()
         data.title = self.request.get('title')
@@ -25,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
             "desc": data.desc,
             "location": data.location
         })
-    self.response.write(html)
+        self.response.write(html)
 
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):

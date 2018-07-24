@@ -17,6 +17,7 @@ body
 .box
 {
   border: solid;
+  padding-bottom: :20px
 }
 
 #back_button
@@ -27,6 +28,12 @@ body
 #post_image
 {
   text-align: left;
+}
+
+.picture
+{
+  width: 300px;
+  height: 300px;
 }
 
 

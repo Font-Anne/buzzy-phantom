@@ -23,7 +23,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<p></p><h3>" + post.desc + "</h3>")
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             if post.image:
-                self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
+                self.response.write("<p></p> <img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
             self.response.write("</div>")
             self.response.write("<br></br>")
 
@@ -54,6 +54,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             if post.image:
                 self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
+            self.response.write("</div>")
             self.response.write("<br></br>")
 
 class SubmitHandler(webapp2.RequestHandler):

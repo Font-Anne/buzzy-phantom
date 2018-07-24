@@ -31,12 +31,23 @@ class MainHandler(webapp2.RequestHandler):
         data.put()
 
         main_template = jinja_env.get_template('templates/main.html')
+        all_posts = information.Data.query().fetch()
+
         html = main_template.render({
             "title": data.title,
             "desc": data.desc,
             "location": data.location
         })
         self.response.write(html)
+        self.response.write("<p></p>")
+        for post in all_posts:
+            self.response.write("<div class= 'box'>")
+            self.response.write("<div id= 'post_image'>")
+            self.response.write("</div> <h2>" + post.title + "</h2>")
+            self.response.write("<p></p><h3>" + post.desc + "</h3>")
+            self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
+            self.response.write("</div>")
+            self.response.write("<br></br>")
 
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):
@@ -44,19 +55,7 @@ class SubmitHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-class PostHandler(webapp2.RequestHandler):
-    def get(self):
-        all_posts = information.Data.query().fetch()
-        for post in all_posts:
-            self.response.write("<div class= 'box'>")
-            self.response.write("<div id= 'post_image'>")
-            self.response.write("</div> <h2>{{ title }}</h2>")
-            self.response.write("<p></p><h3>{{ desc }}</h3>")
-            self.response.write("<p></p><p></p><h3>{{ location }}</h3>")
-            self.response.write("</div>")
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
-    ("/view", PostHandler)
 ], debug=True)

@@ -24,6 +24,11 @@ body
   text-align: left
 }
 
+#post_image
+{
+  text-align: left;
+}
+
 
 /* The side navigation menu */
 .sidenav {

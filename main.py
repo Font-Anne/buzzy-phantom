@@ -15,20 +15,18 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+    def post(self):
+            data = information.Data()
+            data.title = self.request.get('title')
+            data.desc = self.request.get('desc')
+            data.location = self.request.get('location')
+            data.put()
+
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):
         main_template = jinja_env.get_template('templates/submit.html')
         html = main_template.render()
         self.response.write(html)
-
-class DataHandler(webapp2.RequestHandler):
-    def get(self):
-        data = information.Data()
-        data.title = self.request.get('title')
-        data.desc = self.request.get('desc')
-        data.location = self.request.get('location')
-        data.put()
-
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),

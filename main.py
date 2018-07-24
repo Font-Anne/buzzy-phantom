@@ -38,14 +38,6 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-        self.response.write("<div class= 'box'>")
-        self.response.write("<div id= 'post_image'>")
-        self.response.write("</div> <h2>" + data.title + "</h2>")
-        self.response.write("<p></p><h3>" + data.desc + "</h3>")
-        self.response.write("<p></p><p></p><h3>" + data.location + "</h3>")
-        self.response.write("</div>")
-        self.response.write("<br></br>")
-
         for post in all_posts:
             self.response.write("<div class= 'box'>")
             self.response.write("<div id= 'post_image'>")

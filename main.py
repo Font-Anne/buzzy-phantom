@@ -11,7 +11,7 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/view.html')
+        main_template = jinja_env.get_template('templates/main.html')
         html = main_template.render()
         self.response.write(html)
 
@@ -29,8 +29,8 @@ class DataHandler(webapp2.RequestHandler):
         data.location = self.request.get('location')
         data.put()
 
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
-    ('/view', DataHandler)
 ], debug=True)

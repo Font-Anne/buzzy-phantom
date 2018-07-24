@@ -29,7 +29,7 @@ class MainHandler(webapp2.RequestHandler):
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')
         data.location = self.request.get('location')
-        data.image = images.resize(self.request.get('image'), 32, 32)
+        # data.image = images.resize(self.request.get('image'), 32, 32)
         data.put()
 
         main_template = jinja_env.get_template('templates/main.html')

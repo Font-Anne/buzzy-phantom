@@ -36,6 +36,10 @@ class SubmitHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+class PostHandler(webapp2.RequestHandler):
+    def get(self):
+        all_posts = Data.query().fetch()
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),

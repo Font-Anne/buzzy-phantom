@@ -46,6 +46,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             self.response.write("</div>")
             self.response.write("<br></br>")
+# self.response.write("<img src=" + the image +  ")
 
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):

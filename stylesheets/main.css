@@ -7,7 +7,6 @@ body
 {
   text-align: center;
   font-family: Georgia;
-  /* background: url(/static/brickwall.png) repeat 0 0; */
 }
 
 #page_title
@@ -17,7 +16,7 @@ body
 
 .box
 {
-  background-color: white;
+  background-color: #f7f7f7;
   border: solid;
   padding-bottom: :20px;
 }

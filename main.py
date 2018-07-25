@@ -3,6 +3,7 @@ import jinja2
 import os
 import information
 import datetime
+import time
 
 from google.appengine.api import images
 from google.appengine.ext import ndb
@@ -10,6 +11,9 @@ from google.appengine.ext import ndb
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 )
+
+# def parent_key():
+#     return ndb.Key("my")
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -35,7 +39,9 @@ class MainHandler(webapp2.RequestHandler):
 
     def post(self):
 
-#Puts user data in the /submit page to the Datastore
+#Transfers user data in the /submit page to the Datastore
+
+### Bug: Submitted information does not appear until the home page is refreshed
         data = information.Data()
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')
@@ -44,6 +50,7 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.get("image"):
             data.image = images.resize(self.request.get('image'), 300, 300)
         data.put()
+        time.sleep(1)
 
         main_template = jinja_env.get_template('templates/main.html')
 
@@ -55,22 +62,23 @@ class MainHandler(webapp2.RequestHandler):
         })
         self.response.write(html)
         self.response.write("<p></p>")
-
+        self.redirect("/")
+        
 #Sorts the post information in chonological order
-        posts = information.Data.query()
-        sorted_posts = posts.order(-information.Data.time).fetch()
-
-#Writes out the HTML to create the post boxes after the user clicks Submit button
-        for post in sorted_posts:
-            self.response.write("<div class= 'box'>")
-            self.response.write("<div id= 'post_image'>")
-            self.response.write("</div> <h2>" + post.title + "</h2>")
-            self.response.write("<p></p><h3>" + post.desc + "</h3>")
-            self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
-            if post.image:
-                self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
-            self.response.write("</div>")
-            self.response.write("<br></br>")
+#         posts = information.Data.query()
+#         sorted_posts = posts.order(-information.Data.time).fetch()
+#
+# #Writes out the HTML to create the post boxes after the user clicks Submit button
+#         for post in sorted_posts:
+#             self.response.write("<div class= 'box'>")
+#             self.response.write("<div id= 'post_image'>")
+#             self.response.write("</div> <h2>" + post.title + "</h2>")
+#             self.response.write("<p></p><h3>" + post.desc + "</h3>")
+#             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
+#             if post.image:
+#                 self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
+#             self.response.write("</div>")
+#             self.response.write("<br></br>")
 
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):

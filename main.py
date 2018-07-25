@@ -3,6 +3,7 @@ import jinja2
 import os
 import information
 import datetime
+import time
 
 from google.appengine.api import images
 from google.appengine.ext import ndb
@@ -44,6 +45,7 @@ class MainHandler(webapp2.RequestHandler):
         if self.request.get("image"):
             data.image = images.resize(self.request.get('image'), 300, 300)
         data.put()
+        time.sleep(1)
 
         main_template = jinja_env.get_template('templates/main.html')
 

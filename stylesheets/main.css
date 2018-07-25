@@ -1,12 +1,13 @@
 html
 {
-  background-color: #a7dbf2;
+  /*background-color: #a7dbf2; */
 }
 
 body
 {
   text-align: center;
   font-family: Georgia;
+  /* background: url(/static/brickwall.png) repeat 0 0; */
 }
 
 #page_title
@@ -86,6 +87,29 @@ body
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
-#menu{
+.menu{
   text-align: left;
+}
+
+.topbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #a7dbf2; /* #333 */
+}
+.topbar a {
+    /* float: left; */
+    /* display: inline; */
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+}
+.topbar .menu {
+  text-align: left;
+  float: left;
 }

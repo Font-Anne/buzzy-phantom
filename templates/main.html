@@ -6,14 +6,20 @@
     <script src="/static/main.js"></script>
   </head>
     <body>
-      <div id="menu">
+      <div class="topbar">
+      <a href="#" class="menu"> <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span> </a>
+      <a id="title"> <img src="/static/title_edit.png"> </a>
+      <!-- <a> Hit the Jakspot! </a> -->
+      </div>
+      <div class="menu">
         <div id="mySidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           <a href="/">Home</a>
           <a href="/submit">Submit</a>
         </div>
-        <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+        <!-- <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span> -->
       </div>
+
         <h1> Discoveries Made Near You </h1>
         <form id="back_button" action="/submit">
             <input type="submit" value="Submit a Discovery">

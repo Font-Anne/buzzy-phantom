@@ -1,12 +1,13 @@
 html
 {
-  background-color: #a7dbf2;
+  /*background-color: #a7dbf2; */
   font-family: Georgia;
 }
 
 body
 {
   font-size: 24pt;
+  background: url(/static/brickwall.png) repeat 0 0;
 }
 
 #page_title

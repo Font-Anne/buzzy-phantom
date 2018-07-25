@@ -17,8 +17,10 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-        all_posts = information.Data.query().fetch()
-        for post in all_posts:
+        posts = information.Data.query()
+        sorted_posts = posts.order(-information.Data.time).fetch()
+
+        for post in sorted_posts:
             self.response.write("<div class= 'box'>")
             self.response.write("<div id= 'post_image'>")
             self.response.write("</div> <h2>" + post.title + "</h2>")

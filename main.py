@@ -76,9 +76,17 @@ class Image(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'image/jpg'
         self.response.write(data.image)
 
+class WelcomeHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = jinja_env.get_template('templates/about.html')
+        html = main_template.render()
+        self.response.write(html)
+
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
-    ('/img', Image)
+    ('/img', Image),
+    ('/about', WelcomeHandler)
 ], debug=True)

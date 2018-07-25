@@ -8,12 +8,18 @@
           <input type="submit" value="Back to Home">
       </form> -->
     <body>
+      <div class="topbar">
+        <a href="#" class="menu"> <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span> </a>
+        <a id="title"> <img src="/static/title_edit.png"> </a>
+      </div>
       <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="/">Home</a>
         <a href="/submit">Submit</a>
+        <a href="/about"> About </a>
       </div>
-      <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+      <!-- <span class="closebtn" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span> -->
+      <div class="text">
       <h1 id= "page_title">Submit a discovery!</h1>
         <div id="box1">
           <form action="/" enctype="multipart/form-data" method="post">
@@ -32,6 +38,7 @@
             </div>
           </form>
          </div>
+       </div>
       </body>
   </head>
 </html>

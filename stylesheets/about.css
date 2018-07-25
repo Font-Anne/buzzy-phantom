@@ -1,47 +1,48 @@
 html
 {
-  background-color: #a7dbf2;
-  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
-                  url("/static/backgroundpic.jpg");
-  font-family: Georgia;
+  /*background-color: #a7dbf2; */
 }
 
 body
 {
-  font-size: 24pt;
+  text-align: center;
+  font-family: Georgia;
   /* background: url(/static/brickwall.png) repeat 0 0; */
 }
 
 #page_title
 {
   font-size: 38pt;
-  text-align: center;
 }
-
-.blank
-{
-    text-align: center;
-}
-
-#submission_button
-{
-  text-align: center;
-  font-size: 38pt;
-}
-
-#box1
+/*
+.box
 {
   border: solid;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: white;
+  padding-bottom: :20px
 }
+
+#back_button
+{
+  text-align: left
+}
+
+#post_image
+{
+  text-align: left;
+}
+
+.picture
+{
+  width: 300px;
+  height: 300px;
+}
+ */
 
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay i  n place */
+    position: fixed; /* Stay in place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
@@ -56,7 +57,7 @@ body
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
-    color: #cccccc; /*#818181 */
+    color: #818181;
     display: block;
     transition: 0.3s;
 }
@@ -86,7 +87,6 @@ body
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
 }
-
 .menu{
   text-align: left;
 }

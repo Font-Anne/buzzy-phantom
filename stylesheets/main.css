@@ -1,6 +1,6 @@
 html
 {
-  background-color: #a7dbf2;
+  background-color: #d3e4ff;
 }
 
 body
@@ -16,7 +16,7 @@ body
 
 .box
 {
-  background-color: #f7f7f7;
+  background-color: #EDF2F4;
   border: solid;
   padding-bottom: :20px;
 }
@@ -97,7 +97,7 @@ body
   margin: 0;
   padding: 5px;
   overflow: hidden;
-  background-color: #a7dbf2; /* #333 */
+  background-color: #80b0ff; /* #333 */
 }
 .topbar a {
     /* float: left; */

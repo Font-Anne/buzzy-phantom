@@ -17,8 +17,10 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-        all_posts = information.Data.query().fetch()
-        for post in all_posts:
+        posts = information.Data.query()
+        sorted_posts = posts.order(-information.Data.time).fetch()
+
+        for post in sorted_posts:
             self.response.write("<div class= 'box'>")
             self.response.write("<div id= 'post_image'>")
             self.response.write("</div> <h2>" + post.title + "</h2>")
@@ -74,9 +76,17 @@ class Image(webapp2.RequestHandler):
         self.response.headers['Content-Type'] = 'image/jpg'
         self.response.write(data.image)
 
+class WelcomeHandler(webapp2.RequestHandler):
+    def get(self):
+        main_template = jinja_env.get_template('templates/about.html')
+        html = main_template.render()
+        self.response.write(html)
+
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
-    ('/img', Image)
+    ('/img', Image),
+    ('/about', WelcomeHandler)
 ], debug=True)

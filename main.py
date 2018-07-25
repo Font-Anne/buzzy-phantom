@@ -35,7 +35,9 @@ class MainHandler(webapp2.RequestHandler):
 
     def post(self):
 
-#Puts user data in the /submit page to the Datastore
+#Transfers user data in the /submit page to the Datastore
+
+### Bug: Submitted information does not appear until the home page is refreshed
         data = information.Data()
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')

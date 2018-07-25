@@ -7,7 +7,7 @@ body
 {
   text-align: center;
   font-family: Georgia;
-  background: url(/static/brickwall.png) repeat 0 0;
+  /* background: url(/static/brickwall.png) repeat 0 0; */
 }
 
 #page_title

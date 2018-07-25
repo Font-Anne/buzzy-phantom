@@ -1,12 +1,15 @@
 html
 {
   background-color: #a7dbf2;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                  url("/static/backgroundpic.jpg");
   font-family: Georgia;
 }
 
 body
 {
   font-size: 24pt;
+  color: white;
 }
 
 #page_title
@@ -31,6 +34,7 @@ body
   border: solid;
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: #a2b4c1;
 }
 
 /* The side navigation menu */

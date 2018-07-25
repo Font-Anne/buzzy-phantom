@@ -1,12 +1,20 @@
 html
 {
   background-color: #a7dbf2;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                  url("/static/backgroundpic.jpg");
+}
+
+h1
+{
+  color: white;
 }
 
 body
 {
   text-align: center;
   font-family: Georgia;
+  color: white;
 }
 
 #page_title
@@ -16,8 +24,9 @@ body
 
 .box
 {
+  background-color: #a2b4c1;
   border: solid;
-  padding-bottom: :20px
+  padding-bottom: :20px;
 }
 
 #back_button

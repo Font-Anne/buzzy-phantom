@@ -17,9 +17,11 @@ class MainHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+#Sorts the post information in chonological order
         posts = information.Data.query()
         sorted_posts = posts.order(-information.Data.time).fetch()
 
+#Writes out the HTML to create the post boxes
         for post in sorted_posts:
             self.response.write("<div class= 'box'>")
             self.response.write("<div id= 'post_image'>")
@@ -32,6 +34,8 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("<br></br>")
 
     def post(self):
+
+#Puts user data in the /submit page to the Datastore
         data = information.Data()
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')
@@ -42,7 +46,6 @@ class MainHandler(webapp2.RequestHandler):
         data.put()
 
         main_template = jinja_env.get_template('templates/main.html')
-        all_posts = information.Data.query().fetch()
 
         html = main_template.render({
             "title": data.title,
@@ -52,7 +55,13 @@ class MainHandler(webapp2.RequestHandler):
         })
         self.response.write(html)
         self.response.write("<p></p>")
-        for post in all_posts:
+
+#Sorts the post information in chonological order
+        posts = information.Data.query()
+        sorted_posts = posts.order(-information.Data.time).fetch()
+
+#Writes out the HTML to create the post boxes after the user clicks Submit button
+        for post in sorted_posts:
             self.response.write("<div class= 'box'>")
             self.response.write("<div id= 'post_image'>")
             self.response.write("</div> <h2>" + post.title + "</h2>")
@@ -69,6 +78,7 @@ class SubmitHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+#Handler that deals with uploading images (No need to mess with this)
 class Image(webapp2.RequestHandler):
     def get(self):
         key = ndb.Key("Data", int(self.request.get("id")))

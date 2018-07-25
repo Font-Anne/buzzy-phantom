@@ -1,6 +1,8 @@
 html
 {
-  /*background-color: #a7dbf2; */
+  background-color: #a7dbf2;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.8), rgba(255, 255, 0, 0.8)),
+                  url("/static/backgroundpic.jpg");
 }
 
 body
@@ -17,8 +19,9 @@ body
 
 .box
 {
+  background-color: white;
   border: solid;
-  padding-bottom: :20px
+  padding-bottom: :20px;
 }
 
 #back_button

@@ -1,6 +1,8 @@
 html
 {
-  /*background-color: #a7dbf2; */
+  background-color: #a7dbf2;
+  background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+                  url("/static/backgroundpic.jpg");
   font-family: Georgia;
 }
 
@@ -32,13 +34,14 @@ body
   border: solid;
   padding-top: 20px;
   padding-bottom: 20px;
+  background-color: white;
 }
 
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
+    position: fixed; /* Stay i  n place */
     z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;

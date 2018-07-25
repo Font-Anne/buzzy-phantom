@@ -84,6 +84,29 @@ body
     .sidenav a {font-size: 18px;}
 }
 
-#menu{
+.menu{
   text-align: left;
+}
+
+.topbar{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0;
+  padding: 0px;
+  overflow: hidden;
+  background-color: #a7dbf2; /* #333 */
+}
+.topbar a {
+    /* float: left; */
+    /* display: inline; */
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+}
+.topbar .menu {
+  text-align: left;
+  float: left;
 }

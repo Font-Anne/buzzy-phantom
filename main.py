@@ -38,10 +38,12 @@ class MainHandler(webapp2.RequestHandler):
 
 #Loops through a Data object's list of tags and writes them out in HTML
                 if post.tags:
+                    self.response.write("<div class= 'in_tags'>")
                     for tag in post.tags:
-                        self.response.write(tag + " ")
+                        self.response.write("<a href='/tag'>" + tag + "</a> ")
                     self.response.write("<p></p>")
                 self.response.write("</td></tr></tbody></table>")
+                self.response.write("</div>")
 
             else:
                 self.response.write("<div class= 'post_info'>")
@@ -51,9 +53,12 @@ class MainHandler(webapp2.RequestHandler):
 
 #Loops through a Data object's list of tags and writes them out in HTML
                 if post.tags:
+                    self.response.write("<div class= 'in_tags'>")
                     for tag in post.tags:
-                        self.response.write(tag + " ")
+                        self.response.write("<a href='/tag'>" + tag + "</a> ")
                     self.response.write("<p></p>")
+                self.response.write("</div>")
+
 
             self.response.write("</div>")
             self.response.write("</div>")
@@ -92,22 +97,6 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write("<p></p>")
         self.redirect("/")
 
-#Sorts the post information in chonological order
-#         posts = information.Data.query()
-#         sorted_posts = posts.order(-information.Data.time).fetch()
-#
-# #Writes out the HTML to create the post boxes after the user clicks Submit button
-#         for post in sorted_posts:
-#             self.response.write("<div class= 'box'>")
-#             self.response.write("<div id= 'post_image'>")
-#             self.response.write("</div> <h2>" + post.title + "</h2>")
-#             self.response.write("<p></p><h3>" + post.desc + "</h3>")
-#             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
-#             if post.image:
-#                 self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
-#             self.response.write("</div>")
-#             self.response.write("<br></br>")
-
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):
         main_template = jinja_env.get_template('templates/submit.html')
@@ -128,11 +117,16 @@ class WelcomeHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
+class TagHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write("THIS IS THE TAG PAGE")
+
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
     ('/img', Image),
-    ('/about', WelcomeHandler)
+    ('/about', WelcomeHandler),
+    ('/tag', TagHandler)
 ], debug=True)

@@ -27,7 +27,7 @@ class MainHandler(webapp2.RequestHandler):
             if post.image:
                 self.response.write("<div class= 'box'><table><tbody><tr><td>")
             else:
-                self.response.write("<div class= 'textonly_box'>")
+                self.response.write("<div class= 'box'>")
             if post.image:
                 self.response.write("<img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
                 self.response.write("</td><td style='width: 50%;'>")
@@ -51,6 +51,7 @@ class MainHandler(webapp2.RequestHandler):
         data.desc = self.request.get('desc')
         data.location = self.request.get('location')
         data.time = datetime.datetime.now()
+        data.tags = self.request.get('tags')
         if self.request.get("image"):
             data.image = images.resize(self.request.get("image"), 300, 300)
         data.put()
@@ -62,7 +63,8 @@ class MainHandler(webapp2.RequestHandler):
             "title": data.title,
             "desc": data.desc,
             "location": data.location,
-            "image": data.image
+            "image": data.image,
+            "tags": data.tags
         })
         self.response.write(html)
         self.response.write("<p></p>")

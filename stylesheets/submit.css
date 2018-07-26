@@ -16,6 +16,11 @@ body
   text-align: center;
 }
 
+#tag_submit
+{
+  font-size: 18pt;
+}
+
 .blank
 {
     text-align: center;

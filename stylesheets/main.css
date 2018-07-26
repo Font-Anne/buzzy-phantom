@@ -26,15 +26,6 @@ body
   margin-right: auto;
 }
 
-.textonly_box
-{
-  background-color: #f2fafc;
-  border: solid;
-  display: inline-block;
-  text-align: left;
-  vertical-align: middle;
-}
-
 #back_button
 {
   text-align: left;
@@ -52,7 +43,6 @@ body
 .image_info
 {
   text-align: center;
-  /* margin-left: 300px; */
 }
 
 .post_info

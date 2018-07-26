@@ -32,7 +32,7 @@ body
   border: solid;
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: white;
+  background-color: #f2fafc;
 }
 
 /* The side navigation menu */
@@ -61,7 +61,7 @@ body
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: #D3E4FF;
 }
 
 /* Position and style the close button (top right corner) */
@@ -97,6 +97,7 @@ body
   padding: 5px;
   overflow: hidden;
   background-color: #80b0ff; /* #333 */
+  box-shadow: 3px 3px #a6a6a6;
 }
 .topbar a {
     /* float: left; */

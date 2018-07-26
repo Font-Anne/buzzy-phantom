@@ -36,6 +36,17 @@ body
   width: 300px;
   height: 300px;
 }
+/* max-width set it to 300
+max-height too*/
+/*.left
+{
+  width: 50%;
+}
+
+.right
+{
+  width: 50%;
+}*/
 
 /* The side navigation menu */
 .sidenav {

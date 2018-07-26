@@ -35,6 +35,12 @@ body
   border-width: 10px;
 }
 
+.post_info
+{
+
+}
+
+/* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */

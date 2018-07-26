@@ -28,7 +28,7 @@ class MainHandler(webapp2.RequestHandler):
 #Writes out the HTML to create the post boxes
         for post in sorted_posts:
             self.response.write("<div class= 'box'>")
-            self.response.write("<div id= 'post_image'>")
+            self.response.write("<div>")
             self.response.write("</div> <h2>" + post.title + "</h2>")
             self.response.write("<p></p><h3>" + post.desc + "</h3>")
             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")

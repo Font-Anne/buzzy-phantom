@@ -34,13 +34,28 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write("<div class= 'image_info'>")
                 self.response.write("<h2>" + post.title + "</h2>")
                 self.response.write("<p></p><h3>" + post.desc + "</h3>")
-                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
+                self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
+
+#Loops through a Data object's list of tags and writes them out in HTML
+                if post.tags:
+                    for tag in post.tags:
+                        self.response.write(tag + " ")
+                    self.response.write("<p></p>")
                 self.response.write("</td></tr></tbody></table>")
+
             else:
                 self.response.write("<div class= 'post_info'>")
                 self.response.write("<h2>" + post.title + "</h2>")
                 self.response.write("<p></p><h3>" + post.desc + "</h3>")
-                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
+                self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
+
+#Loops through a Data object's list of tags and writes them out in HTML
+                if post.tags:
+                    for tag in post.tags:
+                        self.response.write(tag + " ")
+                    self.response.write("<p></p>")
+
+            self.response.write("</div>")
             self.response.write("</div>")
             self.response.write("<br></br>")
 
@@ -51,7 +66,14 @@ class MainHandler(webapp2.RequestHandler):
         data.desc = self.request.get('desc')
         data.location = self.request.get('location')
         data.time = datetime.datetime.now()
-        data.tags = self.request.get('tags')
+
+#Takes a singular String containing all #tags and puts them into a list.
+#Each element in the list is inserted as a tag in the Datastore.
+        tag_string = self.request.get('tags')
+        tag_list = tag_string.split(" ")
+        data.tags = tag_list
+
+
         if self.request.get("image"):
             data.image = images.resize(self.request.get("image"), 300, 300)
         data.put()

@@ -35,9 +35,15 @@ body
   border-width: 10px;
 }
 
+.image_info
+{
+  text-align: center;
+  margin-left: 300px;
+}
+
 .post_info
 {
-
+  text-align: center;
 }
 
 /* The side navigation menu */

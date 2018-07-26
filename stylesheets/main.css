@@ -22,7 +22,7 @@ body
 
 #back_button
 {
-  text-align: left
+  text-align: left;
 }
 
 .picture
@@ -32,6 +32,12 @@ body
   border: groove;
   border-color: #7da6e8;
   border-width: 10px;
+}
+
+.image_info
+{
+  text-align: center;
+  margin-left: 300px;
 }
 
 .post_info

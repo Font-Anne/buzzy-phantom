@@ -39,16 +39,13 @@ class MainHandler(webapp2.RequestHandler):
 
     def post(self):
 
-#Transfers user data in the /submit page to the Datastore
-
-### Bug: Submitted information does not appear until the home page is refreshed
         data = information.Data()
         data.title = self.request.get('title')
         data.desc = self.request.get('desc')
         data.location = self.request.get('location')
         data.time = datetime.datetime.now()
         if self.request.get("image"):
-            data.image = images.resize(self.request.get('image'), 300, 300)
+            data.image = images.resize(self.request.get("image"), 300, 300)
         data.put()
         time.sleep(1)
 
@@ -63,7 +60,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(html)
         self.response.write("<p></p>")
         self.redirect("/")
-        
+
 #Sorts the post information in chonological order
 #         posts = information.Data.query()
 #         sorted_posts = posts.order(-information.Data.time).fetch()

@@ -97,7 +97,7 @@ body
   padding: 5px;
   overflow: hidden;
   background-color: #80b0ff; /* #333 */
-  box-shadow: 3px 3px #a6a6a6;
+  box-shadow: 3px 3px 3px #a6a6a6;
 }
 .topbar a {
     /* float: left; */

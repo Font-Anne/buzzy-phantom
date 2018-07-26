@@ -14,6 +14,11 @@ body
   font-size: 38pt;
 }
 
+.in_tags
+{
+  color: red;
+}
+
 .box
 {
   background-color: #f2fafc;

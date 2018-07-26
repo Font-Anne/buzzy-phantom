@@ -8,15 +8,3 @@ function openNav() {
 function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
-
-// let tags = document.querySelectorAll('.in_tags');
-//
-// for (tag of tags)
-// {
-//   tag.addEventListener('click', clickedTag);
-// }
-//
-// function clickedTag(e)
-// {
-//
-// }

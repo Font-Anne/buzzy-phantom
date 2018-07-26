@@ -20,7 +20,10 @@ class MainHandler(webapp2.RequestHandler):
 
 #Sorts the post information in chonological order
         posts = information.Data.query()
-        sorted_posts = posts.order(-information.Data.time).fetch()
+        if self.request.get('tags'):
+            sorted_posts = posts.filter(information.Data.tags == self.request.get('tags')).order(-information.Data.time).fetch()
+        else:
+            sorted_posts = posts.order(-information.Data.time).fetch()
 
 #Writes out the HTML to create the post boxes
         for post in sorted_posts:
@@ -40,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
                 if post.tags:
                     self.response.write("<div class= 'in_tags'>")
                     for tag in post.tags:
-                        self.response.write("<a href='/tag'>" + tag + "</a> ")
+                        self.response.write("<a href='/?tags=%23" + tag[1:] + "'>" + tag + "</a> ")
                     self.response.write("<p></p>")
                 self.response.write("</td></tr></tbody></table>")
                 self.response.write("</div>")
@@ -55,7 +58,7 @@ class MainHandler(webapp2.RequestHandler):
                 if post.tags:
                     self.response.write("<div class= 'in_tags'>")
                     for tag in post.tags:
-                        self.response.write("<a href='/tag'>" + tag + "</a> ")
+                        self.response.write("<a href='/?tags=%23" + tag[1:] + "'>" + tag + "</a> ")
                     self.response.write("<p></p>")
                 self.response.write("</div>")
 
@@ -117,16 +120,9 @@ class WelcomeHandler(webapp2.RequestHandler):
         html = main_template.render()
         self.response.write(html)
 
-class TagHandler(webapp2.RequestHandler):
-    def get(self):
-        self.response.write("THIS IS THE TAG PAGE")
-
-
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/submit', SubmitHandler),
     ('/img', Image),
-    ('/about', WelcomeHandler),
-    ('/tag', TagHandler)
+    ('/about', WelcomeHandler)
 ], debug=True)

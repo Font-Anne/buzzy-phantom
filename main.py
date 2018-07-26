@@ -12,9 +12,6 @@ jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 )
 
-# def parent_key():
-#     return ndb.Key("my")
-
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         main_template = jinja_env.get_template('templates/main.html')
@@ -27,13 +24,23 @@ class MainHandler(webapp2.RequestHandler):
 
 #Writes out the HTML to create the post boxes
         for post in sorted_posts:
-            self.response.write("<div class= 'box'>")
-            self.response.write("<div>")
-            self.response.write("</div> <h2>" + post.title + "</h2>")
-            self.response.write("<p></p><h3>" + post.desc + "</h3>")
-            self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
             if post.image:
-                self.response.write("<p></p> <img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
+                self.response.write("<div class= 'box'><table><tbody><tr><td>")
+            else:
+                self.response.write("<div class= 'box'>")
+            if post.image:
+                self.response.write("<img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
+                self.response.write("</td><td style='width: 50%;'>")
+                self.response.write("<div class= 'image_info'>")
+                self.response.write("<h2>" + post.title + "</h2>")
+                self.response.write("<p></p><h3>" + post.desc + "</h3>")
+                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
+                self.response.write("</td></tr></tbody></table>")
+            else:
+                self.response.write("<div class= 'post_info'>")
+                self.response.write("<h2>" + post.title + "</h2>")
+                self.response.write("<p></p><h3>" + post.desc + "</h3>")
+                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
             self.response.write("</div>")
             self.response.write("<br></br>")
 

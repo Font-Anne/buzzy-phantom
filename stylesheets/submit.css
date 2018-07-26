@@ -33,6 +33,10 @@ body
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #f2fafc;
+  max-width: 80%;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* The side navigation menu */

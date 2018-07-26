@@ -19,9 +19,11 @@ body
   background-color: #f2fafc;
   border: solid;
   display: inline-block;
-  max-width: 80%;
+  width: 80%;
   text-align: left;
   vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .textonly_box

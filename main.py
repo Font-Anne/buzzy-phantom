@@ -27,7 +27,7 @@ class MainHandler(webapp2.RequestHandler):
             if post.image:
                 self.response.write("<div class= 'box'><table><tbody><tr><td>")
             else:
-                self.response.write("<div class= 'box'>")
+                self.response.write("<div class= 'textonly_box'>")
             if post.image:
                 self.response.write("<img class='picture' src='/img?id=" + str(post.key.id()) + "'>")
                 self.response.write("</td><td style='width: 50%;'>")

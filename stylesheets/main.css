@@ -24,6 +24,15 @@ body
   vertical-align: middle;
 }
 
+.textonly_box
+{
+  background-color: #f2fafc;
+  border: solid;
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
 #back_button
 {
   text-align: left;

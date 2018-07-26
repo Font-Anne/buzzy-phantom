@@ -35,6 +35,11 @@ body
   border-width: 10px;
 }
 
+.post_info
+{
+  
+}
+
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */

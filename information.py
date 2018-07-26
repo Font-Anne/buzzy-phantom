@@ -6,4 +6,4 @@ class Data(ndb.Model):
     location = ndb.StringProperty(required = True)
     image = ndb.BlobProperty(required = False)
     time = ndb.DateTimeProperty(required = True)
-    # tags = ndb.ListProperty(required = False)
+    tags = ndb.StringProperty(required = False)

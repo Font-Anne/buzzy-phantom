@@ -12,9 +12,6 @@ jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
 )
 
-# def parent_key():
-#     return ndb.Key("my")
-
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         main_template = jinja_env.get_template('templates/main.html')

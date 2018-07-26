@@ -18,7 +18,6 @@ body
 {
   background-color: #f2fafc;
   border: solid;
-  padding-bottom: 20px;
 }
 
 #back_button
@@ -37,7 +36,7 @@ body
 
 .post_info
 {
-  
+  text-align: center;
 }
 
 /* The side navigation menu */

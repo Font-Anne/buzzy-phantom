@@ -14,16 +14,25 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/main.html')
-        html = main_template.render()
-        self.response.write(html)
 
-#Sorts the post information in chonological order
+        #Sorts the post information in chonological order
         posts = information.Data.query()
         if self.request.get('tags'):
             sorted_posts = posts.filter(information.Data.tags == self.request.get('tags')).order(-information.Data.time).fetch()
         else:
             sorted_posts = posts.order(-information.Data.time).fetch()
+
+        main_template = jinja_env.get_template('templates/main.html')
+        if len(sorted_posts) > 0:
+            address = sorted_posts[0].location
+        else:
+            address = None
+        html = main_template.render({
+        "address": address
+        })
+        self.response.write(html)
+
+
 
 #Writes out the HTML to create the post boxes
         for post in sorted_posts:
@@ -50,7 +59,7 @@ class MainHandler(webapp2.RequestHandler):
 
             else:
                 self.response.write("<div class= 'post_info'>")
-                self.response.write("<h2 class= 'title_class'>" + post.title + "</h2>")
+                self.response.write("<h2 class= 'title_class2'>" + post.title + "</h2>")
                 self.response.write("<p></p><h3><div class='desc_location'> Description: </div>" + post.desc + "</h3>")
                 self.response.write("<p></p><p></p><h3><div class='desc_location'>Location: </div>" + post.location + "</h3>")
 
@@ -66,6 +75,7 @@ class MainHandler(webapp2.RequestHandler):
             self.response.write("</div>")
             self.response.write("</div>")
             self.response.write("<br></br>")
+
 
     def post(self):
 

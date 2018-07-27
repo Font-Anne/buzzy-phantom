@@ -29,9 +29,12 @@
             <p></p>
             <div class="blank">Describe it. : <input type="text" name="desc"></div>
             <p></p>
-            <div class="blank">Where is it located? : <input type="text" name="location"></div>
+            <!-- <div class="blank">Where is it located? : <input type="text" name="location"></div> -->
+            <div class="blank"> Location: <input id="pac-input" name="location" class="controls" type="text" placeholder="Search Box">
+            </div>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdsbzGk0yePzMKcptJA7I30MvHGlqhvwg&libraries=places&callback=Autocomplete"></script>
             <p></p>
-            <div id= "tag_submit" class="blank">Tag your post. Seperate your tags using spaces. (Example: #fun #summer #beach)
+            <div id= "tag_submit" class="blank">Tag your post. Separate your tags using spaces. (Example: #fun #summer #beach)
             <input type="text" name="tags"></div>
             <p></p>
             <div class="blank">

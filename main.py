@@ -14,13 +14,22 @@ jinja_env = jinja2.Environment(
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        main_template = jinja_env.get_template('templates/main.html')
-        html = main_template.render()
-        self.response.write(html)
 
-#Sorts the post information in chonological order
+        #Sorts the post information in chonological order
         posts = information.Data.query()
         sorted_posts = posts.order(-information.Data.time).fetch()
+
+        main_template = jinja_env.get_template('templates/main.html')
+        if len(sorted_posts) > 0:
+            address = sorted_posts[0].location
+        else:
+            address = None
+        html = main_template.render({
+        "address": address
+        })
+        self.response.write(html)
+
+
 
 #Writes out the HTML to create the post boxes
         for post in sorted_posts:
@@ -34,15 +43,16 @@ class MainHandler(webapp2.RequestHandler):
                 self.response.write("<div class= 'image_info'>")
                 self.response.write("<h2>" + post.title + "</h2>")
                 self.response.write("<p></p><h3>" + post.desc + "</h3>")
-                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
+                self.response.write("<p></p><p></p><h3 id=\"location\">" + post.location + "</h3></div>")
                 self.response.write("</td></tr></tbody></table>")
             else:
                 self.response.write("<div class= 'post_info'>")
                 self.response.write("<h2>" + post.title + "</h2>")
                 self.response.write("<p></p><h3>" + post.desc + "</h3>")
-                self.response.write("<p></p><p></p><h3>" + post.location + "</h3></div>")
+                self.response.write("<p></p><p></p><h3 id=\"location\">" + post.location + "</h3></div>")
             self.response.write("</div>")
             self.response.write("<br></br>")
+
 
     def post(self):
 
@@ -70,22 +80,6 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write("<p></p>")
         self.redirect("/")
 
-#Sorts the post information in chonological order
-#         posts = information.Data.query()
-#         sorted_posts = posts.order(-information.Data.time).fetch()
-#
-# #Writes out the HTML to create the post boxes after the user clicks Submit button
-#         for post in sorted_posts:
-#             self.response.write("<div class= 'box'>")
-#             self.response.write("<div id= 'post_image'>")
-#             self.response.write("</div> <h2>" + post.title + "</h2>")
-#             self.response.write("<p></p><h3>" + post.desc + "</h3>")
-#             self.response.write("<p></p><p></p><h3>" + post.location + "</h3>")
-#             if post.image:
-#                 self.response.write("<p></p> <img src='/img?id=" + str(post.key.id()) + "'>")
-#             self.response.write("</div>")
-#             self.response.write("<br></br>")
-
 class SubmitHandler(webapp2.RequestHandler):
     def get(self):
         main_template = jinja_env.get_template('templates/submit.html')
@@ -105,8 +99,6 @@ class WelcomeHandler(webapp2.RequestHandler):
         main_template = jinja_env.get_template('templates/about.html')
         html = main_template.render()
         self.response.write(html)
-
-
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),

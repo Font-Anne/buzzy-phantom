@@ -4,6 +4,19 @@
     <title>Dashboard</title>
     <link rel="stylesheet" text="text/css" href="/stylesheets/main.css">
     <script src="/static/main.js"></script>
+    <script>
+    function displayLoc(){
+      var mapProp= {
+        center:new google.maps.LatLng(42.3627413,-71.0884069),
+        zoom:12,
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        {% if address %}
+          strLoc = "{{ address }}"
+          geocodeAddress(strLoc, map);
+        {% endif %}
+    }
+    </script>
   </head>
     <body>
       <div class="topbar">
@@ -22,5 +35,9 @@
       <div class="text">
         <h1> Discoveries Made Near You </h1>
       </div>
+      <div id="googleMap" style="width:80%;height:200px;"></div>
+      <div id="map"></div>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdsbzGk0yePzMKcptJA7I30MvHGlqhvwg&libraries=places&callback=displayLoc"></script>
+      <br></br>
     </body>
 </html>

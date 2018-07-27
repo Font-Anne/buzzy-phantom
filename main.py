@@ -50,7 +50,7 @@ class MainHandler(webapp2.RequestHandler):
 
             else:
                 self.response.write("<div class= 'post_info'>")
-                self.response.write("<h2 class= 'title_class'>" + post.title + "</h2>")
+                self.response.write("<h2 class= 'title_class2'>" + post.title + "</h2>")
                 self.response.write("<p></p><h3><div class='desc_location'> Description: </div>" + post.desc + "</h3>")
                 self.response.write("<p></p><p></p><h3><div class='desc_location'>Location: </div>" + post.location + "</h3>")
 

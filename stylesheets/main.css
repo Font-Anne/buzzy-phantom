@@ -67,6 +67,11 @@ body
   padding: 3%;
 }
 
+.title_class2
+{
+  text-align: center;
+}
+
 /* The side navigation menu */
 .sidenav {
     height: 100%; /* 100% Full-height */

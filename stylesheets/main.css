@@ -14,6 +14,21 @@ body
   font-size: 38pt;
 }
 
+.in_tags
+{
+  color: red;
+}
+
+.title_class
+{
+  font-size: 20pt;
+}
+
+.desc_location
+{
+  color: #0c4196;
+}
+
 .box
 {
   background-color: #f2fafc;
@@ -42,10 +57,17 @@ body
 
 .image_info
 {
-  text-align: center;
+  text-align: left;
+  max-width: 75%;
 }
 
 .post_info
+{
+  text-align: left;
+  padding: 3%;
+}
+
+.title_class2
 {
   text-align: center;
 }

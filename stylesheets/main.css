@@ -24,6 +24,11 @@ body
   font-size: 20pt;
 }
 
+.desc_location
+{
+  color: #0c4196;
+}
+
 .box
 {
   background-color: #f2fafc;
